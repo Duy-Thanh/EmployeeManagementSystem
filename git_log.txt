@@ -1,0 +1,185 @@
+commit 6672cc33aa1b81c03bf00bb0a864895c7c995dab
+Author: Duy Thanh <thanhdz167@gmail.com>
+Date:   Tue Mar 19 11:05:34 2024 +0700
+
+    Minor update
+
+commit 71e7dc103e668e78c81ebe5bc33566b3a0d24065
+Author: Duy Thanh <thanhdz167@gmail.com>
+Date:   Tue Mar 19 11:04:01 2024 +0700
+
+    Update environment for CyberAssistant
+
+commit 525bbed769cf0c23827a33eda1f7b0af189a6cbb
+Author: Duy Thanh <thanhdz167@gmail.com>
+Date:   Tue Mar 19 11:01:43 2024 +0700
+
+    Fix bugs
+
+commit 6d0f54d0c337db076abcd3177d0eba70e5b86e5e
+Author: Duy Thanh <thanhdz167@gmail.com>
+Date:   Tue Mar 19 10:45:56 2024 +0700
+
+    Update environment for CyberAssistant
+
+commit 0bf062212d8d62b850c2b7fe9b0a127d4270c49e
+Author: Duy Thanh <thanhdz167@gmail.com>
+Date:   Tue Mar 19 10:43:42 2024 +0700
+
+    Update environment for CyberAssistant
+
+commit b1abc357b8c488812fbc870a7f7ac4ad571f63bf
+Author: Duy Thanh <thanhdz167@gmail.com>
+Date:   Tue Mar 19 10:38:56 2024 +0700
+
+    Update environment for CyberAssistant
+
+commit 68e080545a32d0bb042b731db3ed7b816d6fd58d
+Author: Duy Thanh <thanhdz167@gmail.com>
+Date:   Tue Mar 19 10:37:16 2024 +0700
+
+    Update environment for CyberAssistant
+
+commit 3fd022459f77ed1db898d57b9becc081e4cbcfa3
+Author: Duy Thanh <thanhdz167@gmail.com>
+Date:   Tue Mar 19 10:04:33 2024 +0700
+
+    Update AES encrypt/decrypt code to cryptography library
+
+commit 6ef224a5c7fb67b0aad1359212079d49ec80d126
+Author: Duy Thanh <thanhdz167@gmail.com>
+Date:   Mon Mar 18 20:11:22 2024 +0700
+
+    Add resources
+
+commit c51ec6c62e1f8d2e9866959df624e3ee69fcd9bf
+Author: Duy Thanh <thanhdz167@gmail.com>
+Date:   Mon Mar 18 15:43:46 2024 +0700
+
+    Reabase
+
+commit 48d88039851678b091262f88fccf84e686d84301
+Author: Duy Thanh <thanhdz167@gmail.com>
+Date:   Mon Mar 18 11:23:17 2024 +0700
+
+    Big Update
+
+commit 1060186048a1da57d08fba59a78bbc85ac64ee80
+Author: Duy Thanh <thanhdz167@gmail.com>
+Date:   Wed Mar 13 08:54:31 2024 +0700
+
+    Big Update
+
+commit 36cd00a9c0f40f83fe1225f07912e24d4f030eb1
+Author: Duy Thanh <thanhdz167@gmail.com>
+Date:   Sat Mar 9 16:06:37 2024 +0700
+
+    Actually big update
+
+commit 9388cc2b95611e68f539b55d3bfeeb2f93991d18
+Author: Duy Thanh <thanhdz167@gmail.com>
+Date:   Fri Mar 8 04:21:27 2024 +0700
+
+    Minor update
+
+commit d3231f30e9f931ebeb6a80c72f0db4359a873968
+Author: Duy Thanh <thanhdz167@gmail.com>
+Date:   Thu Mar 7 22:08:20 2024 +0700
+
+    Minor Update
+
+commit 50214a3709f312f94fcfcab08dc89eacf0aad5c1
+Author: Duy Thanh <thanhdz167@gmail.com>
+Date:   Thu Mar 7 11:17:08 2024 +0700
+
+    Minor update
+
+commit e7ef1b1c79971b9310464e20f1ebd1f557ca706b
+Author: Duy Thanh <thanhdz167@gmail.com>
+Date:   Thu Mar 7 10:58:59 2024 +0700
+
+    Minor update
+
+commit 010050b7a2a642b4cb8351406822bb3e13d9d3b1
+Author: Duy Thanh <thanhdz167@gmail.com>
+Date:   Thu Mar 7 10:50:05 2024 +0700
+
+    Update minor
+
+commit 7dfa3c423812271f719a6089280dfd001665c136
+Author: Duy Thanh <thanhdz167@gmail.com>
+Date:   Thu Mar 7 10:25:50 2024 +0700
+
+    Update minor codebase
+
+commit 76b176a7f532ee3e434195e6bab678bb03d2a61b
+Author: Duy Thanh <thanhdz167@gmail.com>
+Date:   Thu Mar 7 10:04:57 2024 +0700
+
+    Big Update
+
+commit 96d6a18018b3c29c85c1b9e3878e51f383ed9a3d
+Author: Duy Thanh <thanhdz167@gmail.com>
+Date:   Wed Mar 6 15:46:51 2024 +0700
+
+    Update codebase + 2
+
+commit 480711ba9c0eee6602fd28ff548ea609f5629910
+Author: Duy Thanh <thanhdz167@gmail.com>
+Date:   Wed Mar 6 15:25:37 2024 +0700
+
+    Update codebase + 1
+
+commit c87c1549b0faf907588078480b397aeb8e2ad56f
+Author: Duy Thanh <thanhdz167@gmail.com>
+Date:   Wed Mar 6 15:12:39 2024 +0700
+
+    Update codebase
+
+commit b640da2c9a0b267f572367a4a48100a7203bbb8f
+Author: Duy Thanh <thanhdz167@gmail.com>
+Date:   Wed Mar 6 15:09:35 2024 +0700
+
+    Update codebase
+
+commit 41bafe4c542c95a59f60c4b985c60c8f6e35b02c
+Author: Duy Thanh <thanhdz167@gmail.com>
+Date:   Wed Mar 6 11:37:59 2024 +0700
+
+    Update codebase
+
+commit 49e44620b8a264ae0223ea011abd0235b2c7bba2
+Author: Duy Thanh <thanhdz167@gmail.com>
+Date:   Wed Mar 6 11:25:43 2024 +0700
+
+    Update codebase
+
+commit c13d8ff2c307168b4b7e01b4c2321e0b8168e550
+Author: Duy Thanh <thanhdz167@gmail.com>
+Date:   Wed Mar 6 11:24:39 2024 +0700
+
+    Update codebase
+
+commit 488acc8388d91261b146a6c3a8763d62f7d7cf8c
+Author: Duy Thanh <thanhdz167@gmail.com>
+Date:   Wed Mar 6 11:23:49 2024 +0700
+
+    Update codebase
+
+commit a59e94b6f48144b7a4a1b071b81ac834c1e0152c
+Author: Duy Thanh <thanhdz167@gmail.com>
+Date:   Wed Mar 6 11:23:12 2024 +0700
+
+    Update codebase
+
+commit 11b1bf83b6e04e29d343bd12297bc77cd35e5f13
+Author: Duy Thanh <thanhdz167@gmail.com>
+Date:   Wed Mar 6 11:22:36 2024 +0700
+
+    Update codebase
+
+commit f9087b8d0205329355bbcf0c5d9ede0d67f66554
+Author: Duy Thanh <thanhdz167@gmail.com>
+Date:   Wed Mar 6 11:21:38 2024 +0700
+
+    Initial commit

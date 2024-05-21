@@ -1,0 +1,29 @@
+RT_VERSION VERSIONINFO
+FILEVERSION 1,0,0,0
+PRODUCTVERSION 1,0,0,0
+FILEFLAGSMASK 0x3fL
+FILEFLAGS 0x0L
+FILEOS 0x4L
+FILETYPE 0x1L
+FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904E4"
+        BEGIN
+            VALUE "CompanyName", "CyberDay Studios"
+            VALUE "FileDescription", "Cryptography helper file for AMD64"
+            VALUE "FileVersion", "1.0.0.0"
+            VALUE "InternalName", "crypt64.dll"
+            VALUE "LegalCopyright", "Copyright © 2016 - 2024 Nguyen Duy Thanh. All right reserved"
+            VALUE "OriginalFilename", "crypt64.dll"
+            VALUE "ProductName", "Cryptography helper file for AMD64"
+            VALUE "ProductVersion", "1.0.0.0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1252
+    END
+END
+

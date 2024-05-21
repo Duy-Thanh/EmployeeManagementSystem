@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Employee help | Employee Management System User Manual</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="./js/script.js"></script>
+</head>
+<body>
+    <div id="header">
+        <p id="title">Employee Management System User Manual</p>
+        <p id="note">Last Update: 11/03/2024 at 10:54 AM</p>   
+        <hr>
+    </div>
+    <div id="content">
+        <div id="header-content">
+            <p id="title">Add employee</p>
+        </div>
+        <div id="actual-content">
+            <p id="text-content">
+                In Employee Management System software, you can use add employee feature to add new employee easier when you are administrator<br><br>
+
+                Here is the screenshot of the feature
+                <br>
+            </p>
+
+            <a href="./assets/screenshot_add_employee.png">
+                <img src="./assets/screenshot_add_employee.png" style="width: 55%; height: 55%;">
+            </a>
+
+            <hr>
+            <p id="title">
+                Requirements
+            </p>
+
+            <p id="text-content">
+                Your account must assigned Administrative role and must have Administrative permission
+            </p>
+
+            <hr>
+
+            <p id="title">
+                How to access
+            </p>
+
+            <p id="text-content">
+                Here is how you can access this feature:<br><br>
+
+                <ul>
+                    <li>
+                        <p id="text-content">
+                            First, please ensure that you are administrators and your account have Administrative role assigned.
+                        </p>
+                    </li>
+                    <li>
+                        <p id="text-content">
+                            Login to your account, then you will see Administrative screen. <b>If you see Staff screen, then your account haven't Administrative role. Add Employee feature is for Administrators only.</b>
+                        </p>
+                    </li>
+                    <li>
+                        <p id="text-content">
+                            In main menu, please select <b>Employee Manager</b> tab.
+                        </p>
+                    </li>
+
+                    <li>
+                        <p id="text-content">
+                            Press <b>Add Employee</b>
+                        </p>
+                    </li>
+                </ul>
+
+                <br>
+
+                <p id="text-content">
+                    Now you should see <b>Add Employee</b> screen and they should look like the screenshot above
+                </p>
+            </p>
+            <hr>
+
+            <p id="title">
+                Description
+            </p>
+            
+            <p id="text-content">
+                In this section we will discuss more details about this feature<br><br>
+            </p>
+
+            <div style="margin-top: -15px;"></div>
+            
+            <div id="note"> 
+                <div id="note" style="color: red;"> (The section with star mark (*) are required and must not be null)</div>
+            </div>
+
+            <br>
+
+            <div style="display: block;">
+                <label for="username" id="title" style="font-size: 14px; display: inline;">Username (*): </label>
+                <p id="text-content" style="display: inline;">
+                    Enter username for the employee. Note that your employee can't change this information later and only you can change this, please choice carefully
+                </p>
+            </div>
+
+            <br>
+
+            <div style="display: block;">
+                <label for="password" id="title" style="font-size: 14px; display: inline;">Password (*): </label>
+                <p id="text-content" style="display: inline;">
+                    Enter password for the employee. Note that your employee can change this information later, or they can request when they forgot their password and after they passed the authentication to make sure that they requested, your employee can change this information
+                </p>
+            </div>
+
+            <br>
+
+            <div style="display: block;">
+                <label for="role-account" id="title" style="font-size: 14px; display: inline;">Role (*): </label>
+                <p id="text-content" style="display: inline;">
+                    Set the permission which employee account will have.
+                    <br>
+                    <br>
+                    There are <b>two</b> options you can choice here:
+                    <ul>
+                        <li>
+                            <label for="role-account" id="title" style="font-size: 14px; display: inline;">ADMIN </label>
+                        </li>
+                        <li>
+                            <label for="role-account" id="title" style="font-size: 14px; display: inline;">STAFF </label>
+                        </li>
+                    </ul>
+
+                    <p id="text-content" style="display: inline;">
+                        Here is the explaination for each options:
+                    </p>
+
+                    <br>
+                    
+                    <ul>
+                        <li>
+                            <label for="role-account" id="title" style="font-size: 14px; display: inline;">ADMIN: </label>
+
+                            <p id="text-content" style="display: inline;">
+                                When you select this role, employee account will be created and Administrative permissions will be assigned to that account. With Administrative permissions, when employee login, your employee will use Administrator interface and your employee can do anything what they want, including <b>Add Employee, Update Employee, Delete Employee, Manage Salary, Update Salary.</b>
+                                Your employee can also access to <b>Activity Viewer, System Log </b> and <b> Advanced Log Viewer.</b>
+                                <br><br>
+                                Furthermore, account with Administrative permission can <b>Add, Edit and Delete</b> another administrator accounts <b>including account themselves.</b>
+                                <br><br>
+                                We recommended that you should not set this role for normal employee and you should very carefully when choice this role.
+                            </p>
+                        </li>
+                        <br>
+                        <li>
+                            <label for="role-account" id="title" style="font-size: 14px; display: inline;">STAFF: </label>
+
+                            <p id="text-content"style="display: inline;">
+                                When you select this role, employee account will be created and staff permissions will be assigned to that account. This is default role when you add new employee to the system. With Staff permissions, your employee can only do limited things. When your employee login, they will use Staff screen. They can <b>Edit their account informations, </b> including <b>Password, Name, Email, Gender, Date of Birth, Phone Number and Address. </b>
+                                <br><br>
+                                We recommended that you should create new employee with this role.
+                            </p>
+                        </li>
+                    </ul>
+                </p>
+
+                <p id="text-content" style="display: inline;">
+                    <label for="full-name" id="title" style="font-size: 14px; display: inline;">Full Name (*): </label>
+
+                    <p id="text-content" style="display: inline;">
+                        Provide full name of the new employee. Full name accept UTF-8 encoding.
+                    </p>
+                </p>
+
+                <p id="text-content" style="display: inline;">
+                    <label for="phone-number" id="title" style="font-size: 14px; display: inline;">Phone number (*): </label>
+
+                    <p id="text-content" style="display: inline;">
+                        Provide phone number of the new employee. Character are prohibited in this section and you should type number <b>(0 - 9)</b> only in this section.
+                    </p>
+                </p>
+
+                <p id="text-content" style="display: inline;">
+                    <label for="date-of-birth" id="title" style="display: inline; font-size: 14px;">Date of Birth (*): </label>
+
+                    <p id="text-content" style="display: inline;">
+                        Provide Date of Birth for the new employee. The Date of Birth should follow with format:
+
+                        <ul>
+                            <li>
+                                <b id="title" style="display: inline; font-size: 14px;">
+                                    DD/MM/YYYY
+                                </b>
+                            </li>
+                        </ul>
+                    </p>
+                </p>
+
+                <p id="text-content" style="display: inline;">
+                    <label for="gender" id="title" style="font-size: 14px; display: inline;">Gender (*): </label>
+
+                    <p id="text-content" style="display: inline;">
+                        There are <b>four</b> options you can choice in this section:
+
+                        <ul>
+                            <li>
+                                <label for="gender-male" id="title" style="font-size: 14px; display: inline;">Male: </label>
+
+                                <p id="text-content" style="display: inline;">
+                                    Male gender
+                                </p>
+                            </li>
+
+                            <br>
+                            <li>
+                                <label for="female-gender" id="title" style="font-size: 14px; display: inline;">
+                                Female: </label>
+
+                                <p id="text-content" style="display: inline;">
+                                    Female gender
+                                </p>
+                            </li>
+
+                            <br>
+                            <li>
+                                <label for="third-gender" id="title" style="font-size: 14px; display: inline;">
+                                    Third gender (LGBT, LGBT+ or LGBTIQ+):  
+                                </label>
+
+                                <p id="text-content" style="display: inline;">
+                                    This is a special gender, and there are three concepts for it and we will let all three concepts here, and in the software, we decided to choose the official name of this community.
+                                </p>
+                            </li>
+
+                            <br>
+                            <li>
+                                <label for="unrevealed-gender" id="title" style="font-size: 14px; display: inline;">
+                                    Not Revealed: 
+                                </label>
+
+                                <p id="text-content" style="display: inline;">
+                                    This option will be choiced when your employee choice not to reveal their gender. In that case, you should respect their opinion.
+                                </p>
+                            </li>
+                        </ul>
+
+                        <p id="text-content" style="display: inline;">
+                            Gender is a quite sensitive issue. We object to gender distinction and be fair in this as well as respect your staff gender.
+                        </p>
+                    </p>
+                </p>
+
+                <br>
+            </div>
+        </div>
+    </div>
+</body>
+<hr>
+<footer>
+    <p style="font-size: 12px; text-align: center;">Copyright &copy; 2016 - 2024 CyberDay Studios. All right reserved.</p>
+    <p style="font-size: 12px; text-align: center;">Author: Nguyen Duy Thanh (segfault.e404)</p>
+    <a href="#" style="text-align: center;">▲ Back to Top</a>
+</footer>
+</html>

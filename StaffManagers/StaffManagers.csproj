@@ -1,0 +1,683 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\SciSharp.TensorFlow.Redist.2.16.0\build\netstandard2.0\SciSharp.TensorFlow.Redist.props" Condition="Exists('..\packages\SciSharp.TensorFlow.Redist.2.16.0\build\netstandard2.0\SciSharp.TensorFlow.Redist.props')" />
+  <Import Project="..\packages\MethodBoundaryAspect.Fody.2.0.149\build\MethodBoundaryAspect.Fody.props" Condition="Exists('..\packages\MethodBoundaryAspect.Fody.2.0.149\build\MethodBoundaryAspect.Fody.props')" />
+  <Import Project="..\packages\CefSharp.Common.121.3.130\build\CefSharp.Common.props" Condition="Exists('..\packages\CefSharp.Common.121.3.130\build\CefSharp.Common.props')" />
+  <Import Project="..\packages\chromiumembeddedframework.runtime.win-x86.121.3.13\build\chromiumembeddedframework.runtime.win-x86.props" Condition="Exists('..\packages\chromiumembeddedframework.runtime.win-x86.121.3.13\build\chromiumembeddedframework.runtime.win-x86.props')" />
+  <Import Project="..\packages\chromiumembeddedframework.runtime.win-x64.121.3.13\build\chromiumembeddedframework.runtime.win-x64.props" Condition="Exists('..\packages\chromiumembeddedframework.runtime.win-x64.121.3.13\build\chromiumembeddedframework.runtime.win-x64.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A3E6D4E4-578E-4007-B15A-5A7976E7C25B}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>StaffManagers</RootNamespace>
+    <AssemblyName>StaffManagers</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>manager.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>StaffManagers.Program</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>false</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>1CAE6F948F1E656DEA7701454B1B690C7A0005D0</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>StaffManagers_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>StaffManagers_TemporaryKey.pfx</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>false</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BouncyCastle.Cryptography, Version=2.0.0.0, Culture=neutral, PublicKeyToken=072edcf4a5328938, processorArchitecture=MSIL">
+      <HintPath>..\packages\BouncyCastle.Cryptography.2.2.1\lib\net461\BouncyCastle.Cryptography.dll</HintPath>
+    </Reference>
+    <Reference Include="CefSharp, Version=121.3.130.0, Culture=neutral, PublicKeyToken=40c4b6fc221f4138, processorArchitecture=MSIL">
+      <HintPath>..\packages\CefSharp.Common.121.3.130\lib\net462\CefSharp.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CefSharp.Core, Version=121.3.130.0, Culture=neutral, PublicKeyToken=40c4b6fc221f4138, processorArchitecture=MSIL">
+      <HintPath>..\packages\CefSharp.Common.121.3.130\lib\net462\CefSharp.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CefSharp.WinForms, Version=121.3.130.0, Culture=neutral, PublicKeyToken=40c4b6fc221f4138, processorArchitecture=MSIL">
+      <HintPath>..\packages\CefSharp.WinForms.121.3.130\lib\net462\CefSharp.WinForms.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Google.Protobuf, Version=3.25.1.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Protobuf.3.25.1\lib\net45\Google.Protobuf.dll</HintPath>
+    </Reference>
+    <Reference Include="HDF.PInvoke.1.10, Version=1.10.612.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\HDF.PInvoke.1.10.1.10.612\lib\netstandard2.0\HDF.PInvoke.1.10.dll</HintPath>
+    </Reference>
+    <Reference Include="HDF5CSharp, Version=1.19.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\HDF5-CSharp.1.19.0\lib\netstandard2.0\HDF5CSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=1.4.2.13, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
+      <HintPath>..\packages\SharpZipLib.1.4.2\lib\netstandard2.0\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="K4os.Compression.LZ4, Version=1.3.5.0, Culture=neutral, PublicKeyToken=2186fa9121ef231d, processorArchitecture=MSIL">
+      <HintPath>..\packages\K4os.Compression.LZ4.1.3.5\lib\net462\K4os.Compression.LZ4.dll</HintPath>
+    </Reference>
+    <Reference Include="K4os.Compression.LZ4.Streams, Version=1.3.5.0, Culture=neutral, PublicKeyToken=2186fa9121ef231d, processorArchitecture=MSIL">
+      <HintPath>..\packages\K4os.Compression.LZ4.Streams.1.3.5\lib\net462\K4os.Compression.LZ4.Streams.dll</HintPath>
+    </Reference>
+    <Reference Include="K4os.Hash.xxHash, Version=1.0.8.0, Culture=neutral, PublicKeyToken=32cd54395057cec3, processorArchitecture=MSIL">
+      <HintPath>..\packages\K4os.Hash.xxHash.1.0.8\lib\net462\K4os.Hash.xxHash.dll</HintPath>
+    </Reference>
+    <Reference Include="LottieSharp, Version=2.3.0.0, Culture=neutral, PublicKeyToken=0b9dd77ba52f039a, processorArchitecture=MSIL">
+      <HintPath>..\packages\LottieSharp.2.3.0\lib\net47\LottieSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="MethodBoundaryAspect, Version=2.0.149.0, Culture=neutral, PublicKeyToken=296379d5065c9d61, processorArchitecture=MSIL">
+      <HintPath>..\packages\MethodBoundaryAspect.Fody.2.0.149\lib\net462\MethodBoundaryAspect.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.5.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Configuration.2.2.0\lib\netstandard2.0\Microsoft.Extensions.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Configuration.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.Extensions.Configuration.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration.Binder, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Configuration.Binder.2.2.4\lib\netstandard2.0\Microsoft.Extensions.Configuration.Binder.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration.FileExtensions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Configuration.FileExtensions.2.2.0\lib\netstandard2.0\Microsoft.Extensions.Configuration.FileExtensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration.Json, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Configuration.Json.2.2.0\lib\netstandard2.0\Microsoft.Extensions.Configuration.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.FileProviders.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.FileProviders.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.Extensions.FileProviders.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.FileProviders.Physical, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.FileProviders.Physical.2.2.0\lib\netstandard2.0\Microsoft.Extensions.FileProviders.Physical.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.FileSystemGlobbing, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.FileSystemGlobbing.2.2.0\lib\netstandard2.0\Microsoft.Extensions.FileSystemGlobbing.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Primitives, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Primitives.2.2.0\lib\netstandard2.0\Microsoft.Extensions.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Xaml.Behaviors, Version=1.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Xaml.Behaviors.Wpf.1.1.39\lib\net45\Microsoft.Xaml.Behaviors.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data, Version=8.3.0.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.8.3.0\lib\net462\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="OneOf, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\OneOf.3.0.263\lib\net45\OneOf.dll</HintPath>
+    </Reference>
+    <Reference Include="OSVersionExt, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\OSVersionExt.3.0.0\lib\net462\OSVersionExt.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PresentationFramework">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Protobuf.Text, Version=0.7.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Protobuf.Text.0.7.2\lib\netstandard2.0\Protobuf.Text.dll</HintPath>
+    </Reference>
+    <Reference Include="PureHDF, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\PureHDF.1.0.0-beta.7\lib\netstandard2.0\PureHDF.dll</HintPath>
+    </Reference>
+    <Reference Include="Razorvine.Pickle, Version=1.4.0.0, Culture=neutral, PublicKeyToken=35192c03a6ef2e20, processorArchitecture=MSIL">
+      <HintPath>..\packages\Razorvine.Pickle.1.4.0\lib\netstandard2.0\Razorvine.Pickle.dll</HintPath>
+    </Reference>
+    <Reference Include="SegmentDownloader.Core, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\SegmentDownloader.Core.2.0.0\lib\netstandard2.0\SegmentDownloader.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="SegmentDownloader.Protocol, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\SegmentDownloader.Protocol.2.0.0\lib\netstandard2.0\SegmentDownloader.Protocol.dll</HintPath>
+    </Reference>
+    <Reference Include="Serilog, Version=2.0.0.0, Culture=neutral, PublicKeyToken=24c2f752a8e58a10, processorArchitecture=MSIL">
+      <HintPath>..\packages\Serilog.2.10.0\lib\net46\Serilog.dll</HintPath>
+    </Reference>
+    <Reference Include="Serilog.Sinks.Console, Version=4.1.0.0, Culture=neutral, PublicKeyToken=24c2f752a8e58a10, processorArchitecture=MSIL">
+      <HintPath>..\packages\Serilog.Sinks.Console.4.1.0\lib\net45\Serilog.Sinks.Console.dll</HintPath>
+    </Reference>
+    <Reference Include="SkiaSharp, Version=2.88.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
+      <HintPath>..\packages\SkiaSharp.2.88.3\lib\net462\SkiaSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="SkiaSharp.SceneGraph, Version=2.88.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
+      <HintPath>..\packages\SkiaSharp.Skottie.2.88.3\lib\net462\SkiaSharp.SceneGraph.dll</HintPath>
+    </Reference>
+    <Reference Include="SkiaSharp.Skottie, Version=2.88.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
+      <HintPath>..\packages\SkiaSharp.Skottie.2.88.3\lib\net462\SkiaSharp.Skottie.dll</HintPath>
+    </Reference>
+    <Reference Include="SkiaSharp.Views.Desktop.Common, Version=2.88.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
+      <HintPath>..\packages\SkiaSharp.Views.Desktop.Common.2.88.3\lib\net462\SkiaSharp.Views.Desktop.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="SkiaSharp.Views.WPF, Version=2.88.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
+      <HintPath>..\packages\SkiaSharp.Views.WPF.2.88.3\lib\net462\SkiaSharp.Views.WPF.dll</HintPath>
+    </Reference>
+    <Reference Include="System">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Configuration">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Configuration.ConfigurationManager, Version=4.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Configuration.ConfigurationManager.4.4.1\lib\net461\System.Configuration.ConfigurationManager.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Core">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=7.0.0.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Diagnostics.DiagnosticSource.7.0.2\lib\net462\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing.Common, Version=4.0.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Drawing.Common.4.5.1\lib\net461\System.Drawing.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.Pipelines, Version=5.0.0.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.Pipelines.5.0.2\lib\net461\System.IO.Pipelines.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Management">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Resources.Extensions, Version=7.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Resources.Extensions.7.0.0\lib\net462\System.Resources.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Transactions">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xaml">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Deployment">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Windows.Forms">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Tensorflow.Binding, Version=0.150.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\TensorFlow.NET.0.150.0\lib\netstandard2.0\Tensorflow.Binding.dll</HintPath>
+    </Reference>
+    <Reference Include="Tensorflow.Keras, Version=0.15.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\TensorFlow.Keras.0.15.0\lib\netstandard2.0\Tensorflow.Keras.dll</HintPath>
+    </Reference>
+    <Reference Include="TSS.Net, Version=2.1.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.TSS.2.1.1\lib\net46\TSS.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="WindowsBase">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ZstdSharp, Version=0.7.1.0, Culture=neutral, PublicKeyToken=8d151af33a4ad5cf, processorArchitecture=MSIL">
+      <HintPath>..\packages\ZstdSharp.Port.0.7.1\lib\net461\ZstdSharp.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ActivityViewer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ActivityViewer.Designer.cs">
+      <DependentUpon>ActivityViewer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddEmployeeUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AddEmployeeUC.Designer.cs">
+      <DependentUpon>AddEmployeeUC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddEmployeeUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AddEmployeeUserControl.Designer.cs">
+      <DependentUpon>AddEmployeeUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdministrativeTabControl.cs" />
+    <Compile Include="AdministrativeUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AdministrativeUserControl.Designer.cs">
+      <DependentUpon>AdministrativeUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DeleteEmployeeUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DeleteEmployeeUC.Designer.cs">
+      <DependentUpon>DeleteEmployeeUC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmDownloadRequirements.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDownloadRequirements.Designer.cs">
+      <DependentUpon>frmDownloadRequirements.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GlueEmployeeManagerUC.cs" />
+    <Compile Include="Config.cs" />
+    <Compile Include="Crypto.cs" />
+    <Compile Include="CustomizedButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DashboardUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DashboardUserControl.Designer.cs">
+      <DependentUpon>DashboardUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EclipseControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="EmployeeManagerDashboard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="EmployeeManagerDashboard.Designer.cs">
+      <DependentUpon>EmployeeManagerDashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EmployeeManagerUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="EmployeeManagerUserControl.Designer.cs">
+      <DependentUpon>EmployeeManagerUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FormControl.Designer.cs">
+      <DependentUpon>FormControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormControlHomepage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FormControlHomepage.Designer.cs">
+      <DependentUpon>FormControlHomepage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmViewLog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmViewLog.Designer.cs">
+      <DependentUpon>frmViewLog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HelpBrowser.cs" />
+    <Compile Include="HelpBrowser.Designer.cs">
+      <DependentUpon>HelpBrowser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ImageConverter.cs" />
+    <Compile Include="ImageHandler.cs" />
+    <Compile Include="LoginFormPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="LoginFormPanel.Designer.cs">
+      <DependentUpon>LoginFormPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LoginOptionsPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="LoginOptionsPanel.Designer.cs">
+      <DependentUpon>LoginOptionsPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LoginUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="LoginUserControl.Designer.cs">
+      <DependentUpon>LoginUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MySQLConnection.cs" />
+    <Compile Include="NativeHandler.cs" />
+    <Compile Include="OverlayTransparentPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="proc_helper.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="FontLoader.cs" />
+    <Compile Include="RoundedCornersHelper.cs" />
+    <Compile Include="SelectableItems.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SelectableItems.Designer.cs">
+      <DependentUpon>SelectableItems.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SelectionUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SelectionUserControl.Designer.cs">
+      <DependentUpon>SelectionUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SettingsUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SettingsUC.Designer.cs">
+      <DependentUpon>SettingsUC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SQLConfigurations.cs" />
+    <Compile Include="UpdateEmployeeUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UpdateEmployeeUC.Designer.cs">
+      <DependentUpon>UpdateEmployeeUC.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="ActivityViewer.resx">
+      <DependentUpon>ActivityViewer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddEmployeeUC.resx">
+      <DependentUpon>AddEmployeeUC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddEmployeeUserControl.resx">
+      <DependentUpon>AddEmployeeUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdministrativeUserControl.resx">
+      <DependentUpon>AdministrativeUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DashboardUserControl.resx">
+      <DependentUpon>DashboardUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DeleteEmployeeUC.resx">
+      <DependentUpon>DeleteEmployeeUC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EmployeeManagerDashboard.resx">
+      <DependentUpon>EmployeeManagerDashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EmployeeManagerUserControl.resx">
+      <DependentUpon>EmployeeManagerUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormControl.resx">
+      <DependentUpon>FormControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormControlHomepage.resx">
+      <DependentUpon>FormControlHomepage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmViewLog.resx">
+      <DependentUpon>frmViewLog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HelpBrowser.resx">
+      <DependentUpon>HelpBrowser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoginFormPanel.resx">
+      <DependentUpon>LoginFormPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoginOptionsPanel.resx">
+      <DependentUpon>LoginOptionsPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoginUserControl.resx">
+      <DependentUpon>LoginUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="SelectableItems.resx">
+      <DependentUpon>SelectableItems.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SelectionUserControl.resx">
+      <DependentUpon>SelectionUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SettingsUC.resx">
+      <DependentUpon>SettingsUC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UpdateEmployeeUC.resx">
+      <DependentUpon>UpdateEmployeeUC.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="app.manifest">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="App1.config" />
+    <None Include="appsettings.json" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="StaffManagers_TemporaryKey.pfx" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\close_hover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\close_normal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\minimize_normal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\close_click.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\minimize_hover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="manager.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="Resources\manager.png" />
+    <None Include="Resources\devtool.png" />
+    <None Include="Resources\close.png" />
+    <None Include="Resources\refresh_ios.png" />
+    <None Include="Resources\back_ios_new.png" />
+    <None Include="Resources\forward_ios.png" />
+    <None Include="Resources\back.png" />
+    <None Include="Resources\manage_person.png" />
+    <None Include="Resources\edit_person.png" />
+    <None Include="Resources\delete_person.png" />
+    <None Include="Resources\add_person.png" />
+    <None Include="Resources\refresh.png" />
+    <None Include="Resources\feedback.png" />
+    <None Include="Resources\person_aspron.png" />
+    <None Include="Resources\retired.png" />
+    <None Include="Resources\list_long.png" />
+    <None Include="Resources\settings.png" />
+    <None Include="Resources\log_viewer.png" />
+    <None Include="Resources\employee.png" />
+    <None Include="Resources\dashboard.png" />
+    <None Include="Resources\account.png" />
+    <None Include="Resources\SF-Pro-Display-Black.otf" />
+    <None Include="Resources\SF-Pro-Display-BlackItalic.otf" />
+    <None Include="Resources\SF-Pro-Display-Bold.otf" />
+    <None Include="Resources\SF-Pro-Display-BoldItalic.otf" />
+    <None Include="Resources\SF-Pro-Display-Heavy.otf" />
+    <None Include="Resources\SF-Pro-Display-HeavyItalic.otf" />
+    <None Include="Resources\SF-Pro-Display-Light.otf" />
+    <None Include="Resources\SF-Pro-Display-LightItalic.otf" />
+    <None Include="Resources\SF-Pro-Display-Medium.otf" />
+    <None Include="Resources\SF-Pro-Display-MediumItalic.otf" />
+    <None Include="Resources\SF-Pro-Display-Regular.otf" />
+    <None Include="Resources\SF-Pro-Display-RegularItalic.otf" />
+    <None Include="Resources\SF-Pro-Display-Semibold.otf" />
+    <None Include="Resources\SF-Pro-Display-SemiboldItalic.otf" />
+    <None Include="Resources\SF-Pro-Display-Thin.otf" />
+    <None Include="Resources\SF-Pro-Display-ThinItalic.otf" />
+    <None Include="Resources\SF-Pro-Display-Ultralight.otf" />
+    <None Include="Resources\SF-Pro-Display-UltralightItalic.otf" />
+    <None Include="Resources\SF-Pro-Italic.ttf" />
+    <None Include="Resources\SF-Pro-Rounded-Black.otf" />
+    <None Include="Resources\SF-Pro-Rounded-Bold.otf" />
+    <None Include="Resources\SF-Pro-Rounded-Heavy.otf" />
+    <None Include="Resources\SF-Pro-Rounded-Light.otf" />
+    <None Include="Resources\SF-Pro-Rounded-Medium.otf" />
+    <None Include="Resources\SF-Pro-Rounded-Regular.otf" />
+    <None Include="Resources\SF-Pro-Rounded-Semibold.otf" />
+    <None Include="Resources\SF-Pro-Rounded-Thin.otf" />
+    <None Include="Resources\SF-Pro-Rounded-Ultralight.otf" />
+    <None Include="Resources\SF-Pro-Text-Black.otf" />
+    <None Include="Resources\SF-Pro-Text-BlackItalic.otf" />
+    <None Include="Resources\SF-Pro-Text-Bold.otf" />
+    <None Include="Resources\SF-Pro-Text-BoldItalic.otf" />
+    <None Include="Resources\SF-Pro-Text-Heavy.otf" />
+    <None Include="Resources\SF-Pro-Text-HeavyItalic.otf" />
+    <None Include="Resources\SF-Pro-Text-Light.otf" />
+    <None Include="Resources\SF-Pro-Text-LightItalic.otf" />
+    <None Include="Resources\SF-Pro-Text-Medium.otf" />
+    <None Include="Resources\SF-Pro-Text-MediumItalic.otf" />
+    <None Include="Resources\SF-Pro-Text-Regular.otf" />
+    <None Include="Resources\SF-Pro-Text-RegularItalic.otf" />
+    <None Include="Resources\SF-Pro-Text-Semibold.otf" />
+    <None Include="Resources\SF-Pro-Text-SemiboldItalic.otf" />
+    <None Include="Resources\SF-Pro-Text-Thin.otf" />
+    <None Include="Resources\SF-Pro-Text-ThinItalic.otf" />
+    <None Include="Resources\SF-Pro-Text-Ultralight.otf" />
+    <None Include="Resources\SF-Pro-Text-UltralightItalic.otf" />
+    <None Include="Resources\SF-Pro.ttf" />
+    <None Include="Resources\signout_hover.png" />
+    <None Include="Resources\signout_normal.png" />
+    <None Include="Resources\loading.gif" />
+    <None Include="Resources\ed3bb55a-dbc5-4c1c-b2f2-07cca9d284df.gif" />
+    <None Include="Resources\ur0EyqQN_2x.jpg" />
+    <None Include="Resources\6063991.jpg" />
+    <None Include="Resources\back_hover.png" />
+    <None Include="Resources\back_normal.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\SkiaSharp.NativeAssets.macOS.2.88.3\build\net462\SkiaSharp.NativeAssets.macOS.targets" Condition="Exists('..\packages\SkiaSharp.NativeAssets.macOS.2.88.3\build\net462\SkiaSharp.NativeAssets.macOS.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\SkiaSharp.NativeAssets.macOS.2.88.3\build\net462\SkiaSharp.NativeAssets.macOS.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\SkiaSharp.NativeAssets.macOS.2.88.3\build\net462\SkiaSharp.NativeAssets.macOS.targets'))" />
+    <Error Condition="!Exists('..\packages\SkiaSharp.NativeAssets.Win32.2.88.3\build\net462\SkiaSharp.NativeAssets.Win32.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\SkiaSharp.NativeAssets.Win32.2.88.3\build\net462\SkiaSharp.NativeAssets.Win32.targets'))" />
+    <Error Condition="!Exists('..\packages\chromiumembeddedframework.runtime.win-x64.121.3.13\build\chromiumembeddedframework.runtime.win-x64.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\chromiumembeddedframework.runtime.win-x64.121.3.13\build\chromiumembeddedframework.runtime.win-x64.props'))" />
+    <Error Condition="!Exists('..\packages\chromiumembeddedframework.runtime.win-x86.121.3.13\build\chromiumembeddedframework.runtime.win-x86.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\chromiumembeddedframework.runtime.win-x86.121.3.13\build\chromiumembeddedframework.runtime.win-x86.props'))" />
+    <Error Condition="!Exists('..\packages\CefSharp.Common.121.3.130\build\CefSharp.Common.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\CefSharp.Common.121.3.130\build\CefSharp.Common.props'))" />
+    <Error Condition="!Exists('..\packages\CefSharp.Common.121.3.130\build\CefSharp.Common.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\CefSharp.Common.121.3.130\build\CefSharp.Common.targets'))" />
+    <Error Condition="!Exists('..\packages\Fody.6.7.0\build\Fody.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Fody.6.7.0\build\Fody.targets'))" />
+    <Error Condition="!Exists('..\packages\MethodBoundaryAspect.Fody.2.0.149\build\MethodBoundaryAspect.Fody.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\MethodBoundaryAspect.Fody.2.0.149\build\MethodBoundaryAspect.Fody.props'))" />
+    <Error Condition="!Exists('..\packages\HDF.PInvoke.1.10.1.10.612\build\net461\HDF.PInvoke.1.10.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\HDF.PInvoke.1.10.1.10.612\build\net461\HDF.PInvoke.1.10.targets'))" />
+    <Error Condition="!Exists('..\packages\SciSharp.TensorFlow.Redist.2.16.0\build\netstandard2.0\SciSharp.TensorFlow.Redist.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\SciSharp.TensorFlow.Redist.2.16.0\build\netstandard2.0\SciSharp.TensorFlow.Redist.props'))" />
+  </Target>
+  <Import Project="..\packages\SkiaSharp.NativeAssets.Win32.2.88.3\build\net462\SkiaSharp.NativeAssets.Win32.targets" Condition="Exists('..\packages\SkiaSharp.NativeAssets.Win32.2.88.3\build\net462\SkiaSharp.NativeAssets.Win32.targets')" />
+  <Import Project="..\packages\CefSharp.Common.121.3.130\build\CefSharp.Common.targets" Condition="Exists('..\packages\CefSharp.Common.121.3.130\build\CefSharp.Common.targets')" />
+  <PropertyGroup>
+    <Deterministic>false</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+  <Import Project="..\packages\Fody.6.7.0\build\Fody.targets" Condition="Exists('..\packages\Fody.6.7.0\build\Fody.targets')" />
+  <Import Project="..\packages\HDF.PInvoke.1.10.1.10.612\build\net461\HDF.PInvoke.1.10.targets" Condition="Exists('..\packages\HDF.PInvoke.1.10.1.10.612\build\net461\HDF.PInvoke.1.10.targets')" />
+</Project>
